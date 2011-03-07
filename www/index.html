@@ -1,0 +1,357 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta name="viewport" content="width=screen.width; user-scalable=no" />
+<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+<title>Name Trendz</title>
+<link rel="stylesheet" href="jquery.mobile/jquery.mobile-1.0a2.css"
+	type="text/css" charset="utf-8" />
+<link rel="stylesheet" href="nametrendz-override.css" type="text/css"
+	charset="utf-8" />
+<script src="jquery.mobile/jquery-1.4.4.js"></script>
+<script src="jquery.mobile/jquery.mobile-1.0a2.js"></script>
+<script type="text/javascript" charset="utf-8" src="phonegap.0.9.4.js"></script>
+<script type="text/javascript" charset="utf-8" src="names50.js"></script>
+<script type="text/javascript" charset="utf-8" src="main.js"></script>
+<script type="text/javascript" charset="utf-8" src="quotes.js"></script>
+<script type="text/javascript" charset="utf-8" src="contacts.js"></script>
+<script type="text/javascript" charset="utf-8" src="trend.js"></script>
+<script type="text/javascript" charset="utf-8" src="shaker.js"></script>
+</head>
+<body onload="init();">
+  
+<!-- Start of pagehome Start of pagehome Start of pagehome  -->
+<div data-role="page" data-theme="b" id="pagehome"
+	style="background-image: url(images/wp_bg_clouds_tile.png);">
+<div data-role="header" data-nobackbtn="true">
+<h1>Name Trendz</h1>
+<a href="#pageabout" data-icon="info" class="ui-btn-right">About</a></div>
+
+<div data-role="content">
+
+<ul data-role="listview" data-inset="true">
+	<li data-role="list-divider">
+	<div id="quotes-div"></div>
+	</li>
+	<li data-role="list-divider">
+	<div id="quotesauth-div"></div>
+	</li>
+</ul>
+
+<ul data-role="listview" data-inset="true" data-theme="c">
+	<li><a href="#pagesearch">Search names</a></li>
+	<li><a href="#pagelikes">My likes &amp; dislikes</a></li>
+	<li><a href="pagefriends">Friends' names</a></li>
+</ul>
+<!--  --></div>
+<!-- /content --></div>
+<!-- /pagehome /pagehome /pagehome /pagehome -->
+
+
+<!-- Start of pagelikes Start of pagelikes Start of pagelikes  -->
+<div data-role="page" data-theme="b" id="pagelikes">
+<div data-role="header" data-nobackbtn="false">
+	<h1>Favorites List</h1>
+	<a href="#pageadd" data-icon="plus" class="ui-btn-right">Add</a>
+</div>
+	<div data-role="navbar" data-theme="c">
+		<ul>
+			<li><a href="#" id="likesbtn">Likes</a></li>
+			<li><a href="#" id="dislikesbtn">Dislikes</a></li>
+		</ul>
+	</div><!-- /navbar -->
+<div data-role="content">
+<div>
+</div>
+
+	<div id="likeslist">
+	<ol data-role="listview" id="likesOl" data-inset="true">
+		<li data-role="list-divider">I love these names!</li>
+	</ol>
+	<div id="likesbase">
+		<div>		
+		<h4>Your Likes list is empty!</h4>
+		<br/>
+		<h4>Find any name and add it to your list:</h4>
+		</div>
+		<a href="#pagesearch" data-role="button" data-icon="search">Search for Names</a>
+		<div><br/></div>
+		<a href="#pageadd" data-role="button" data-icon="search">Add a Name</a>
+	</div>
+	</div>
+	<div id="dislikeslist">
+	<ol data-role="listview" id="dislikesOl" data-inset="true" data-theme="d">
+		<li data-role="list-divider">I don't love these names.</li>
+	</ol>
+	<div id="dislikesbase">
+		<div>
+		<h4>Your Dislikes list is empty!</h4>
+		<br/>
+		<h4>Find any name and add it to your list:</h4>
+		</div>
+		<a href="#pagesearch" data-role="button" data-icon="search">Search for Names</a>
+		<div><br/></div>
+		<a href="#pageadd" data-role="button" data-icon="search">Add a Name</a>
+	</div>
+	</div>
+
+</div> <!-- /content -->
+</div> <!-- /pagelikes /pagelikes /pagelikes /pagelikes -->
+
+
+<!-- Start of pagefriends Start of pagefriends Start of pagefriends  -->
+<div data-role="page" data-theme="b" id="pagefriends">
+<div data-role="header">
+<h1>Friends</h1>
+	<div data-role="navbar" data-theme="c" data-inset="true">
+		<ul>
+			<li><a href="#" id="friends-alpha-btn">Alphabetical</a></li>
+			<li><a href="#" id="friends-count-btn">By Count</a></li>
+		</ul>
+	</div><!-- /navbar -->
+	
+</div>
+<div data-role="content">
+
+	<ol id="contact-list" data-role="listview">
+		<li><a  >Loading Contacts ...</a></li>
+	</ol>
+
+</div> <!-- /content -->
+
+</div> <!-- /pagefriends /pagefriends /pagefriends /pagefriends -->
+
+<!-- Start of pagesearch Start of pagesearch Start of pagesearch  -->
+<div data-role="page" data-theme="b" id="pagesearch">
+<div data-role="header" data-nobackbtn="false">
+<h1>Search</h1>
+	<a href="#pageresults" data-icon="search" class="ui-btn-right">Search</a>
+	<div data-role="navbar" >
+		<ul data-theme="c">
+			<li><a id="searchpop" selected>Popular</a></li>
+		<!--	<li><a id="searchrare" >Rare</a></li>-->
+			<li><a id="searchbyname" >By Name</a></li>
+		</ul>
+	</div><!-- /navbar -->
+
+</div>
+<div data-role="content" id="content-pop">
+
+<div data-role="fieldcontain">
+    <fieldset data-role="controlgroup" data-type="horizontal">
+    	<legend><h4>Choose a Gender:</h4></legend>
+    		<input type="radio" name="genderchoice" id="genderM" value="male"" checked="checked"/>
+	        <label for="genderM">Male</label>
+	        <input type="radio" name="genderchoice" id="genderF" value="female"  />
+	        <label for="genderF">Female</label>
+    </fieldset>
+</div>
+
+<div data-role="fieldcontain">
+	<label for="year">Choose the year:</label> 
+	<input type="range" name="year" id="year" value="1970" min="1880" max="2009" /> 
+</div>
+
+<div data-role="button" id="getnamesbtn">Search Popular Names</div>
+	
+</div> <!-- /content-pop -->
+
+<div data-role="content" id= "content-by-name">
+
+        <div data-role="fieldcontain">
+            <fieldset data-role="controlgroup" data-type="vertical" data-role="fieldcontain">
+                	<legend>Gender:</legend>
+                        <input type="radio" name="radio-choice-2" id="radio21" value="male" />
+         	            <label for="radio21">Male</label>
+
+         	            <input type="radio" name="radio-choice-2" id="radio22" value="femal"  />
+         	            <label for="radio22">Female</label>
+
+         	            <input type="radio" name="radio-choice-2" id="radio23" value="either"  checked="checked" />
+         	            <label for="radio23">Either</label>
+            </fieldset>
+        </div>
+        
+        <div data-role="fieldcontain">
+            <label for="name">Name:</label>
+            <input type="text" id="byname-name" value=""  />
+            <a href="#pagesearchbynamecontacts" data-role="button" data-icon="search" id="getcontacts">Select a Contact</a>
+        </div>
+
+        <a href="#" data-role="button" data-icon="arrow-r" data-iconpos="right" id="gettrendbtn">Search</a>
+    
+	
+</div> <!-- /content-by-name -->
+
+</div> <!-- /pagesearch /pagesearch /pagesearch /pagesearch -->
+
+
+<!-- Start of pageadd Start of pageadd Start of pageadd  -->
+<div data-role="page" data-theme="b" id="pageadd">
+<div data-role="header" data-nobackbtn="false">
+	<h1>Add a Name</h1>
+	 <a href="#" data-icon="check" id="savenamebtn" class="ui-btn-right">Save</a>
+</div>
+<div data-role="content">
+
+	<div></div>
+		<div data-role="fieldcontain">
+    		<label for="name"><h4>Type in a Name</h4></label>
+    		<input type="text" name="name" id="inputname" value=""  />
+		</div>
+	<div></div>
+	<div data-role="controlgroup" data-type="horizontal">
+		<legend><h4>Add name to a List:</h4></legend>
+		<center><a href="#" id="inputlikesadd" data-role="button">Likes</a>
+		<a href="#" id="inputdislikesadd" data-role="button">Dislikes</a></center>
+	</div>
+</div> <!-- /content -->
+
+</div> <!-- /pageadd /pageadd /pageadd /pageadd -->
+
+
+<!-- Start of pagename Start of pagename Start of pagename  -->
+
+<div data-role="page" data-theme="b" id="pagename">
+<div data-role="header" data-nobackbtn="false">
+	<h1>Name</h1>
+    <a href="#pagehome" data-icon="home" class="ui-btn-right">Home</a>
+</div>
+<div data-role="content">
+
+	<center><h1 id="currentname"></h1></center>
+	
+	<div id="peakmessage"></div>
+	<div></</div>
+	
+	<div data-role="fieldcontain">
+	<div data-role="controlgroup" data-type="horizontal">
+		<legend><h4>Add name to a List:</h4></legend>
+		<center><a id="likesaddbtn" data-role="button">Likes</a>
+		<a id="dislikesaddbtn" data-role="button">Dislikes</a></center>
+	</div>
+	</div>
+	<div></div>
+<div data-role="button" id="viewpopranks">View Popularity Rankings</div>
+<div data-role="button" id="sharename">Share Name</div>
+
+</div> <!-- /content -->
+
+</div> <!-- /pagename /pagename /pagename /pagename -->
+
+
+<!-- Start of pageabout Start of pageabout Start of pageabout  -->
+<div data-role="page" data-theme="b" id="pageabout" style="background-image: url(images/wp_bg_clouds_tile.png);">
+<div data-role="header" data-nobackbtn="false">
+		<a href="#pagehome" data-icon="arrow-l" data-direction="reverse">Back</a>
+		<h1>About</h1>
+</div>
+
+	<div data-role="content">	
+		<h2 style="text-align: center;">About Name Trendz</h2>
+			<div style="text-align: center;"><img src="images/ic_background_stork.png" rel="external" /></div>
+		<p> 
+			The list of names and stats come from the <a href="http://www.socialsecurity.gov/OACT/babynames/" rel="external">U.S. Government Social Security Administration</a>. Their data runs from 1890 until about 2 years ago.
+		</p> 
+		<p> 
+			Thank you to <a href="http://blog.twg.ca/2010/11/retina-display-icon-set/" rel="external">TWC (The Working Group)</a> for providing a few extra icons that we used on this project.
+		</p> 
+
+		<h2>Techie Stuff</h2>
+		<p> 
+			This app was created in <a href="http://www.phonegap.com/"  rel="external">PhoneGap</a> using jQuery Mobile. We also used Paul &amp; Libby's free plug-in for Eclipse, <a href="http://www.mobiledevelopersolutions.com/"  rel="external">MDS 1.2</a>, to simplify the development process.
+		</p> 
+
+		<ul data-role="listview" data-inset="true" data-split-theme="true"> 
+			<li data-role="list-divider">Engineering</li> 
+			<li>
+			    <a href="mailto:paul.beusterien@gmail.com">Paul Beusterien</a>
+			    <a href="http://www.mobiledevelopersolutions.com/" rel="external">Web site</a>
+			</li> 
+			<li>
+			    <a href="mailto:libby.baldwin@gmail.com" rel="external">Libby Baldwin</a>
+			    <a href="http://www.mobiledevelopersolutions.com/" rel="external">Web site</a>
+			</li> 
+		</ul> 
+		<ul data-role="listview" data-inset="true" data-split-theme="true"> 
+			<li data-role="list-divider">Design</li> 
+			<li>
+			    <a href="mailto:anthony.hand@gmail.com" rel="external">Anthony Hand, UI Design</a>
+			    <a href="http://www.hand-interactive.com/" rel="external">Web site</a>
+			</li> 
+			<li>
+			    Stevi McCartney, Graphic Design</li> 
+		</ul> 
+
+</div> <!-- /content -->
+
+</div> <!-- /pageabout /pageabout /pageabout /pageabout -->
+
+<!-- Start of pagepopresults Start of pagepopresults Start of pagepopresults Results Results Results -->
+<div data-role="page" data-theme="b" id="pagepopresults">
+	<div data-role="header">
+	<h1> Popular Search </h1> 
+	<a href="#pagehome" data-icon="home" class="ui-btn-right">Home</a>
+	</div><!-- /header -->
+
+	<div data-role="content" id="contentpagepopresults">
+
+	<h4>Tap on a name for more options.</h4>
+	
+		<div><b><span id="resGender"> &nbsp;</span></b> Names from the Year 
+		<b><span id="resYear"> &nbsp;</span></b></div>	
+			<ol data-role="listview" id="resultsListOl" data-inset="true">
+				<li>Results from search here...</li>
+			</ol>
+	</div><!-- /content -->
+
+</div><!-- /pagepopresults /pagepopresults /pagepopresults /pagepopresults -->
+
+<!-- Start of pagetrends Start of pagetrends Start of pagetrends Results Results Results -->
+<div data-role="page" data-theme="b" id="pagetrends">
+	<div data-role="header">
+	<h1> Trend Results </h1> 
+	<a href="#pagehome" data-icon="home" class="ui-btn-right">Home</a>
+	</div><!-- /header -->
+	<div data-role="content" id="contentpagetrends">
+ 
+       <p>
+		<b><span id="trendResName"> &nbsp;</span></b> in the top 50 of &nbsp;<b><span id="trendResGender"></b> &nbsp;	
+		  </span> American babies born since <b><span id="trendResYear"> &nbsp;</span></b>
+		 </p>
+		 
+	        <ol id="trends-list" data-role="listview" data-inset="true">
+
+			</ol>
+	</div><!-- /content -->
+
+</div><!-- /pagetrends /pagetrends /pagetrends /pagetrends -->
+
+<!-- Start of pagetemplate Start of pagetemplate Start of pagetemplate  -->
+<div data-role="page" data-theme="b" id="pagetemplate">
+<div data-role="header" data-position="inline" data-nobackbtn="true">
+	<h1><em>What's in a Name? template</em></h1> 
+<!--	<a href="#page5" data-icon="gear" class="ui-btn-right">About</a>-->
+</div>
+<div>
+	<center><h3>(a header)</h3></center>
+</div>
+<div data-role="content">
+
+
+<div data-role="button" id="noname">(a btn)</div>
+
+
+</div> <!-- /content -->
+
+<div data-role="footer" data-position="fixed">
+	<div data-role="navbar">
+		<ul>
+			<li><a href="#">(Navbar item)</a></li>
+		</ul>
+	</div><!-- /navbar -->
+</div> <!-- /footer -->
+
+</div> <!-- /pagetemplate /pagetemplate /pagetemplate /pagetemplate -->
+  </body>
+</html>

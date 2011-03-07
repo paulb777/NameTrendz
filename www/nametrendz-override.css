@@ -1,0 +1,103 @@
+/* These overrides to the JQuery Mobile css file are used to
+ * allow more content in the headers and footers The original values are
+ * included in comments after each property. Attempted to change
+ * only a minimum number of values to achieve desired result.
+ */
+
+.ui-content h5 { margin: 5px; padding: 8px; font-size: 16px; }
+
+/* help reduce vertical waste */
+label { margin: 0px; }
+
+/* Use for custom icon w/ data-icon="home-icon"*/
+ .ui-icon-home-icon { background-image: url(images/home-icon.png); background-size: 16px 16px; } 
+
+.ui-header .ui-title {
+	margin-right:20px;
+	margin-left:20px;
+}
+/* JQM: margin-left, margin-right: 90px
+ *      
+ */
+
+
+ .ui-footer .ui-title {
+	margin-right:20px;
+	margin-left:20px;
+	white-space:normal; 
+ }
+ /* JQM: margin-left, margin-right: 90px
+ *       white-space:nowrap
+ */
+ 
+ 
+/* .ui-bar, .ui-body { position: relative; padding: .4em 15px; }*/
+/*.ui-bar, .ui-body { padding: .4em 10px; }*/
+
+/* .ui-content { border-width: 0; overflow: visible; overflow-x: hidden; padding: 15px; }*/
+/*.ui-content { border-width: 0; overflow: visible; overflow-x: hidden; padding: 8px; }*/
+
+/*.ui-dialog .ui-header, .ui-dialog .ui-content,  .ui-dialog .ui-footer { margin: 15px; position: relative; }*/
+/*.ui-dialog .ui-header, .ui-dialog .ui-content,  .ui-dialog .ui-footer { margin: 5px; }*/
+
+/*.ui-grid-b .ui-block-a, .ui-grid-b .ui-block-b, .ui-grid-b .ui-block-c { width: 29%; }*/
+ /* JQM: width: 33.333%; 
+  * Can't be 33.333% as that leaves no space for default margins!
+  */
+  
+/*.ui-grid-a .ui-block-a, .ui-grid-a .ui-block-b { width: 46%; }*/
+ /* JQM: width: 50%;
+  * Can't be 50% as that leaves no space for default margins!
+  */
+   
+.ui-btn-inner { padding: .6em 5px; }
+ /* JQM: padding: .6em 25px; */
+ 
+
+/* Color theme "h" */
+/*
+border    		F7C942
+background    	fadb4e 	=	
+color       	2489CE
+background 		faeb9e
+text-shadow 	fe3, fff
+border 			e79952
+background		fbe26f
+-moz-linear-gradient fceda7
+
+(top, #fceda7, #fadb4e)
+(top, #fff, #faeb9e)
+(top, #fcf0b5, #fbe26f)
+(top, #fadb4e, #fceda7)
+
+color-stop(0, #fceda7),color-stop(1, #fadb4e)
+color-stop(0, #fff),color-stop(1, #faeb9e)
+color-stop(0, #fcf0b5),color-stop(1, #fbe26f)
+color-stop(0, #fadb4e),color-stop(1, #fceda7)
+*/
+ 
+/* test changes here (border)55cc99=F7C942 (bkgrd)C5E3BF=fceda7, 63AB62=fadb4e  (color)9AFF9A=333  44a2aa=2489CE  */
+.ui-bar-h {  border: 1px solid #55cc99; background: #63AB62; color: #9AFF9A; text-shadow: 0 1px 0 #fff; background-image: -moz-linear-gradient(top, #C5E3BF, #63AB62); background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #C5E3BF),color-stop(1, #63AB62)); }
+.ui-bar-h, .ui-bar-h input, .ui-bar-h select, .ui-bar-h textarea, .ui-bar-d button { font-family: Helvetica, Arial, sans-serif; }
+.ui-bar-h .ui-link-inherit { color: #333; }
+.ui-bar-h .ui-link { color: #44a2aa; font-weight: bold; }
+
+/* test changes here (border)55cc99=F7C942 (bkgrd)fff,88eecc=faeb9e (color)603311=333333  44a2aa=2489CE  */
+.ui-body-h { border: 1px solid #55cc99; background: #88eecc; color: #603311; text-shadow: 0 1px 0 #fff; background-image: -moz-linear-gradient(top, #fff, #88eecc); background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #fff),color-stop(1, #88eecc)); }
+.ui-body-h, .ui-body-h input, .ui-body-h select, .ui-body-h textarea, .ui-body-h button { font-family: Helvetica, Arial, sans-serif; }
+.ui-body-h .ui-link-inherit { color: #333333; }
+.ui-body-h .ui-link { color: #44a2aa; font-weight: bold; }
+
+/* test changes here (border)55cc99=F7C942 (bkgrd)C5E3BF=fceda7, 63AB62=fadb4e (color)9AFF9A=333 (ocolor)333*/
+.ui-btn-up-h { border: 1px solid #55cc99; background: #63AB62; color: #9AFF9A; font-weight: bold; cursor: pointer;  text-shadow: 0 1px 1px #fe3; text-decoration: none; text-shadow: 0 1px 0 #fff; background-image: -moz-linear-gradient(top, #C5E3BF, #63AB62); background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #C5E3BF),color-stop(1, #63AB62)); }
+.ui-btn-up-h a.ui-link-inherit { color: #333; }
+
+/* test changes here (border) 52e799=e79952  (bkgrd) b5fcf0=fcf0b5, 6ffbe2=fbe26f  (color)022=111 */
+.ui-btn-hover-h { border: 1px solid #52e799; background: #6ffbe2; font-weight: bold; color: #022; text-decoration: none; text-shadow: 0 1px 1px #fff; background-image: -moz-linear-gradient(top, #b5fcf0, #6ffbe2); background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #b5fcf0),color-stop(1, #6ffbe2)); }
+
+.ui-btn-hover-h a.ui-link-inherit { color: #333; }
+.ui-btn-down-h { border: 1px solid #F7C942; background: #fceda7; font-weight: bold; color: #111; text-shadow: 0 1px 1px #ffffff; background-image: -moz-linear-gradient(top, #fadb4e, #fceda7); background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #fadb4e),color-stop(1, #fceda7)); }
+.ui-btn-down-h a.ui-link-inherit { color: #333; }
+.ui-btn-up-h, .ui-btn-hover-h, .ui-btn-down-h { font-family: Helvetica, Arial, sans-serif; }
+
+ 
